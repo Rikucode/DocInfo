@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    internal class Speciality
+    class Speciality
     {
         int id;
         string name;

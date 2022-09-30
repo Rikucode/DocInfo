@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    internal class Appointment
+    class Appointment
     {
         DateTime appointmentStart;
         DateTime appointmentEnd;

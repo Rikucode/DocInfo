@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    internal class Schedule
+    class Schedule
     {
         int doctorId;
         TimeOnly workdayStart;

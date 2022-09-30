@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    internal class Doctor
+    class Doctor
     {
         int id;
         string name;
