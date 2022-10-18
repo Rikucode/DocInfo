@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLogic
+namespace DomainLogic.Models
 {
-    public class Schedule
+    public class Appointment
     {
+        DateTime appointmentStart;
+        DateTime appointmentEnd;
+        int patientId { get; set; }
         int doctorId { get; set; }
-        TimeOnly workdayStart;
-        TimeOnly workdayEnd;
     }
 }

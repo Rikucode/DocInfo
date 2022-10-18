@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLogic
+namespace DomainLogic.Models
 {
     public class User
     {
-        int id { get; set; }   
+        int id { get; set; }
         string phoneNumber { get; set; }
-        string name { get; set; }  
-        enum Role 
+        string name { get; set; }
+        enum Role
         {
             User,
             Admin

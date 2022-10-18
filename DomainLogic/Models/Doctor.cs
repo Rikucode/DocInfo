@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLogic
+namespace DomainLogic.Models
 {
-    public class Speciality
+    public class Doctor
     {
         int id { get; set; }
         string name { get; set; }
+        Speciality speciality;
     }
 }

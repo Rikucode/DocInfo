@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.Entity;
+using DomainLogic.Models;
 
-namespace DomainLogic
+namespace DomainLogic.Contexts
 {
     public class UserContext : DbContext
     {
         public UserContext() : base("DefaultConnection")
-        {   }
+        { }
         public DbSet<User> Users { get; set; }
     }
 }
