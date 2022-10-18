@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    class User
+    public class User
     {
-        int id;
-        string phoneNumber;
-        string name;
-        enum Role
+        int id { get; set; }   
+        string phoneNumber { get; set; }
+        string name { get; set; }  
+        enum Role 
         {
             User,
             Admin
-        };
+        }
     }
 }

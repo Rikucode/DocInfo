@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    class Doctor
+    public class Doctor
     {
-        int id;
-        string name;
+        int id { get; set; }
+        string name { get; set; }
         Speciality speciality;
     }
 }

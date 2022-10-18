@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DomainLogic
 {
-    class Appointment
+    public class Appointment
     {
         DateTime appointmentStart;
         DateTime appointmentEnd;
-        int patientId;
-        int doctorId;
+        int patientId { get; set; }
+        int doctorId { get; set; }
     }
 }
