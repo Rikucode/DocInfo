@@ -12,6 +12,7 @@ namespace DomainLogic.Services
     public class DoctorService
     {
         private readonly IDoctorRepository _doctorRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
         public DoctorService(IDoctorRepository doctorRepository)
         {
             _doctorRepository = doctorRepository;
@@ -31,6 +32,9 @@ namespace DomainLogic.Services
         }
         public Result DeleteDoctor(Doctor doctor)
         {
+            if (_appointmentRepository.GetAppointmentsByDoctorId(doctor.id) is not null){
+                return Result.Fail("Нельзя удалить врача с активными приёмами");
+            }
             try
             {
                 var result = _doctorRepository.DeleteDoctor(doctor);

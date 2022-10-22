@@ -8,8 +8,9 @@ namespace DomainLogic.Models
 {
     public class Doctor
     {
-        int id { get; set; }
+        public int id { get; set; }
         string name { get; set; }
+
         Speciality speciality;
     }
 }

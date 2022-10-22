@@ -9,8 +9,10 @@ namespace DomainLogic.IRepositories
 {
     public interface IAppointmentRepository : IDisposable
     {
-        public Appointment? AddAppointment(Doctor doctor, DateOnly date);
+        public Appointment? AddAppointment(Doctor doctor, DateTime date);
         public bool RemoveAppointment(Appointment appointment);
-        public IEnumerable<DateOnly>? GetFreeDates(Speciality speciality);
+        public Appointment? GetAppointment(Doctor doctor, DateTime date);
+        public IEnumerable<Appointment> GetAppointmentsByDoctorId(int id);
+        public IEnumerable<DateTime>? GetFreeDates(Speciality speciality);
     }
 }
