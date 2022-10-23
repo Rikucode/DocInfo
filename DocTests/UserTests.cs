@@ -1,14 +1,16 @@
-using DomainLogic;
+using DomainLogic.Models;
+using DomainLogic.IRepositories;
+using DomainLogic.Services;
 
 namespace DocTests
 {
     public class UserTests
     {
-        private readonly Mock<IDocRepository<User>> _userRepositoryMock;
+        private readonly Mock<IUserRepository> _userRepositoryMock;
         private readonly UserService _userService;
         public UserTests()
         {
-            _userRepositoryMock = new Mock<IDocRepository<User>>();
+            _userRepositoryMock = new Mock<IUserRepository>();
             _userService = new UserService(_userRepositoryMock.Object);
         }
 

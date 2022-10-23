@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainLogic.Models;
+using DomainLogic.IRepositories;
 
-namespace DomainLogic
+namespace DomainLogic.Services
 {
     public class UserService
     {
-       private readonly IDocRepository<User> _userRepository;
-       public UserService(IDocRepository<User> userRepository)
+        private readonly IUserRepository _userRepository;
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }

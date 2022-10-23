@@ -14,7 +14,7 @@ namespace DomainLogic
 
         protected Result(bool success, string error)
         {
-            if ((success && error != string.Empty) || (!success && error == string.Empty))
+            if (success && error != string.Empty || !success && error == string.Empty)
             {
                 throw new InvalidOperationException();
             }
@@ -28,7 +28,7 @@ namespace DomainLogic
         }
         public static Result<T> Fail<T>(string message)
         {
-            return new Result<T>(default(T), false, message);
+            return new Result<T>(default, false, message);
         }
         public static Result Ok()
         {
