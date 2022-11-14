@@ -1,17 +1,18 @@
 ﻿using System;
+using Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DomainLogic.Models;
 
 namespace DomainLogic.IRepositories
 {
     public interface IScheduleRepository : IDisposable
     {
-        public Schedule? GetSchedule(Doctor doctor, DateOnly date);
-        public Schedule? AddSchedule(Schedule schedule);
-        public bool RemoveSchedule(Schedule schedule);
-        public Schedule? UpdateSchedule(Schedule oldSchedule, Schedule newSchedule);
+        public Schedule? GetSchedule(int doctor_id, DateOnly date);
+        public Schedule? AddSchedule(ScheduleModel schedule);
+        public Schedule? GetScheduleById(int id);
+        public bool RemoveSchedule(int id);
+        public Schedule? UpdateSchedule(ScheduleModel newSchedule);
     }
 }

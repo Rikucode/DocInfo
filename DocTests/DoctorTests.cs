@@ -1,11 +1,11 @@
 ﻿using DomainLogic.IRepositories;
 using DomainLogic.Services;
-using DomainLogic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainLogic;
 
 namespace DocTests
 {
@@ -40,10 +40,10 @@ namespace DocTests
         [Fact]
         public void DoctorsListNotFound_ShouldFail()
         {
-            _doctorRepositoryMock.Setup(repository => repository.GetDoctorsBySpeciality(It.IsAny<Speciality>()))
+            _doctorRepositoryMock.Setup(repository => repository.GetDoctorsBySpeciality(It.IsAny<int>()))
             .Returns(() => null);
 
-            var res = _doctorService.GetDoctorsBySpeciality(null);
+            var res = _doctorService.GetDoctorsBySpeciality(0);
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Не удалочь найти список врачей с данной специализацией");

@@ -4,17 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLogic.Models
+namespace DomainLogic
 {
-    public class User
+    public class Speciality
     {
         int id { get; set; }
-        string phoneNumber { get; set; }
         string name { get; set; }
-        enum Role
-        {
-            User,
-            Admin
-        }
     }
 }

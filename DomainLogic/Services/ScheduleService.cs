@@ -1,5 +1,5 @@
 ﻿using DomainLogic.IRepositories;
-using DomainLogic.Models;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +16,11 @@ namespace DomainLogic.Services
             _scheduleRepository = scheduleRepository;
         }
 
-        public Result<Schedule> GetSchedule(Doctor doctor, DateOnly date)
+        public Result<Schedule> GetSchedule(int doctor_id, DateOnly date)
         {
             try
             {
-                var result = _scheduleRepository.GetSchedule(doctor, date);
+                var result = _scheduleRepository.GetSchedule(doctor_id, date);
                 return result is null ? Result.Fail<Schedule>("Не удалось получить расписание для данного врача на выбранную дату") :
                     Result.Ok(result);
             }
@@ -29,7 +29,7 @@ namespace DomainLogic.Services
                 return Result.Fail<Schedule>("Error:" + e);
             }
         }
-        public Result<Schedule> AddSchedule(Schedule schedule)
+        public Result<Schedule> AddSchedule(ScheduleModel schedule)
         {
             try
             {
@@ -42,11 +42,11 @@ namespace DomainLogic.Services
                 return Result.Fail<Schedule>("Error:" + e);
             }
         }
-        public Result RemoveSchedule(Schedule schedule)
+        public Result RemoveSchedule(int id)
         {
             try
             {
-                var result = _scheduleRepository.RemoveSchedule(schedule);
+                var result = _scheduleRepository.RemoveSchedule(id);
                 return result is false ? Result.Fail("Не удалось удалить расписание") :
                     Result.Ok(result);
             }
@@ -55,11 +55,11 @@ namespace DomainLogic.Services
                 return Result.Fail("Error:" + e);
             }
         }
-        public Result<Schedule> UpdateSchedule(Schedule oldSchedule, Schedule newSchedule)
+        public Result<Schedule> UpdateSchedule(ScheduleModel newSchedule)
         {
             try
             {
-                var result = _scheduleRepository.UpdateSchedule(oldSchedule, newSchedule);
+                var result = _scheduleRepository.UpdateSchedule(newSchedule);
                 return result is null ? Result.Fail<Schedule>("Не удалось обновить расписание") :
                     Result.Ok(result);
             }

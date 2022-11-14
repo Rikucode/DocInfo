@@ -1,6 +1,5 @@
-﻿using DomainLogic.Contexts;
-using DomainLogic.Models;
-using System;
+﻿using System;
+using Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +9,10 @@ namespace DomainLogic.IRepositories
 {
     public interface IDoctorRepository : IDisposable
     {
-        public Doctor? AddDoctor(Doctor doctor);
-        public bool DeleteDoctor(Doctor doctor);
+        public Doctor? AddDoctor(DoctorModel doctor);
+        public bool DeleteDoctor(int id);
         public IEnumerable<Doctor>? GetAllDoctors();
         public Doctor? GetById(int id);
-        public IEnumerable<Doctor>? GetDoctorsBySpeciality(Speciality speciality);
+        public IEnumerable<Doctor>? GetDoctorsBySpeciality(int speciality_id);
     }
 }

@@ -1,5 +1,5 @@
 ﻿using DomainLogic.IRepositories;
-using DomainLogic.Models;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace DomainLogic.Services
         {
             _doctorRepository = doctorRepository;
         }
-        public Result<Doctor> AddDoctor(Doctor doctor)
+        public Result<Doctor> AddDoctor(DoctorModel doctor)
         {
             try
             {
@@ -30,14 +30,14 @@ namespace DomainLogic.Services
                 return Result.Fail<Doctor>("Error" + e);
             }
         }
-        public Result DeleteDoctor(Doctor doctor)
+        public Result DeleteDoctor(int id)
         {
-            if (_appointmentRepository.GetAppointmentsByDoctorId(doctor.id) is not null){
+            if (_appointmentRepository.GetAppointmentsByDoctorId(id) is not null){
                 return Result.Fail("Нельзя удалить врача с активными приёмами");
             }
             try
             {
-                var result = _doctorRepository.DeleteDoctor(doctor);
+                var result = _doctorRepository.DeleteDoctor(id);
                 return result is false ? Result.Fail("Не удалось удалить врача") :
                     Result.Ok(result);
             }
@@ -72,11 +72,11 @@ namespace DomainLogic.Services
                 return Result.Fail<Doctor>("Error" + e);
             }
         }
-        public Result<IEnumerable<Doctor>> GetDoctorsBySpeciality(Speciality speciality)
+        public Result<IEnumerable<Doctor>> GetDoctorsBySpeciality(int speciality_id)
         {
             try
             {
-                var result = _doctorRepository.GetDoctorsBySpeciality(speciality);
+                var result = _doctorRepository.GetDoctorsBySpeciality(speciality_id);
                 return result is null ? Result.Fail<IEnumerable<Doctor>>("Не удалочь найти список врачей с данной специализацией") :
                     Result.Ok(result);
             }

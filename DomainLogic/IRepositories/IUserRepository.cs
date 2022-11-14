@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Models;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using DomainLogic.Contexts;
-using DomainLogic.Models;
 
 namespace DomainLogic.IRepositories
 {
@@ -13,7 +12,7 @@ namespace DomainLogic.IRepositories
     {
         public User? GetByLogin(string login);
         public User? GetById(int id);
-        public User? Create(User user);
+        public User? Create(UserModel user);
         public bool IsExist(User user);
     }
 }
