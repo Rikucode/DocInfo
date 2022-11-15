@@ -18,7 +18,9 @@ namespace Repositories
                 appointmentStart = model.appointment_start,
                 appointmentEnd = model.appointment_end,
                 doctorId = model.doctor_id,
-                patientId = model.patient_id
+                patientId = model.patient_id,
+                isFree = model.is_free,
+                specialityId = model.speciality_id
             };
         }
         public static IEnumerable<Appointment>? ToDomain(this List<AppointmentModel> model)

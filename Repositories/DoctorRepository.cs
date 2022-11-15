@@ -13,7 +13,6 @@ namespace Repositories
     public class DoctorRepository : IDoctorRepository
     {
         private readonly DoctorContext _context;
-
         public DoctorRepository(DoctorContext context)
         {
             _context = context;

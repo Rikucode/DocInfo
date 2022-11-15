@@ -2,6 +2,7 @@
 using DomainLogic;
 using DomainLogic.IRepositories;
 using Models;
+using Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Repositories
         {
             _context = context;
         }
+
         public Appointment? AddAppointment(AppointmentModel appointment)
         {
             _context.Appointments.Add(appointment);
@@ -43,8 +45,8 @@ namespace Repositories
 
         public IEnumerable<DateTime>? GetFreeDates(int speciality_id)
         {
-            //TODO
-            throw new NotImplementedException();
+            var appointments = _context.Appointments.Where(a => a.is_free == true && a.speciality_id == speciality_id).Select(a => a.appointment_start).ToList<DateTime>();
+            return appointments;
         }
 
         public bool RemoveAppointment(int appointment_id)
