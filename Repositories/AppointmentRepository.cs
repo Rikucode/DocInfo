@@ -43,6 +43,7 @@ namespace Repositories
 
         public IEnumerable<DateTime>? GetFreeDates(int speciality_id)
         {
+            //TODO
             throw new NotImplementedException();
         }
 

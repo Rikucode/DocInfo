@@ -21,10 +21,10 @@ namespace DocTests
         [Fact]
         public void ScheduleNotFound_ShouldFail()
         {
-            _scheduleRepositoryMock.Setup(repository => repository.GetSchedule(It.IsAny<Doctor>(), It.IsAny<DateOnly>()))
+            _scheduleRepositoryMock.Setup(repository => repository.GetSchedule(It.IsAny<int>(), It.IsAny<DateOnly>()))
             .Returns(() => false);
             DateOnly dateOnly = new DateOnly();
-            var res = _scheduleService.GetSchedule(null, dateOnly);
+            var res = _scheduleService.GetSchedule(0, dateOnly);
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Не удалось получить расписание для данного врача на выбранную дату");
@@ -40,7 +40,7 @@ namespace DocTests
         [Fact]
         public void ScheduleNullUpdated_ShouldFail()
         {
-            var res = _scheduleService.UpdateSchedule(null, null);
+            var res = _scheduleService.UpdateSchedule( null);
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Не удалось обновить расписание");
