@@ -57,5 +57,16 @@ namespace Repositories
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+        public void InsertTest()
+        {
+            UserModel userModel = new UserModel();
+            userModel.id = 1;
+            userModel.name = "Артём";
+            userModel.login = "Rikugou";
+            userModel.phone_number = "88005553535";
+            _context.Users.Add(userModel);
+            _context.SaveChanges();
+        }
     }
 }

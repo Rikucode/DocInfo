@@ -40,7 +40,7 @@ namespace DocTests
         [Fact]
         public void ScheduleNullUpdated_ShouldFail()
         {
-            var res = _scheduleService.UpdateSchedule( null);
+            var res = _scheduleService.UpdateSchedule(null);
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Не удалось обновить расписание");
