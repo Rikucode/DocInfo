@@ -12,9 +12,9 @@ namespace Repositories
 {
     public class ScheduleRepository : IScheduleRepository
     {
-        private readonly ScheduleContext _context;
+        private readonly ApplicationContext _context;
 
-        public ScheduleRepository(ScheduleContext context)
+        public ScheduleRepository(ApplicationContext context)
         {
             _context = context;
         }

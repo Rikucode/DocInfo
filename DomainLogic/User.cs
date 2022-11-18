@@ -17,5 +17,7 @@ namespace DomainLogic
             User,
             Admin
         }
+        public Role role { get; set; }
+        public string password { get; set; }
     }
 }

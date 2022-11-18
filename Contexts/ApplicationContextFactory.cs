@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Contexts
 {
-    public class DoctorContextFactory : IDesignTimeDbContextFactory<DoctorContext>
+    public class ApplicationContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
     {
-        public DoctorContext CreateDbContext(string[] args)
+        public ApplicationContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<DoctorContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
             optionsBuilder.UseSqlite(
                 "Data Source=Database.db");
 
-            return new DoctorContext(optionsBuilder.Options);
+            return new ApplicationContext(optionsBuilder.Options);
         }
     }
 }

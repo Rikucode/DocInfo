@@ -9,9 +9,9 @@ namespace Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly UserContext _context;
+        private readonly ApplicationContext _context;
 
-        public UserRepository (UserContext context)
+        public UserRepository (ApplicationContext context)
         {
             _context = context;
         }

@@ -12,8 +12,8 @@ namespace Repositories
 {
     public class DoctorRepository : IDoctorRepository
     {
-        private readonly DoctorContext _context;
-        public DoctorRepository(DoctorContext context)
+        private readonly ApplicationContext _context;
+        public DoctorRepository(ApplicationContext context)
         {
             _context = context;
         }

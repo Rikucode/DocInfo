@@ -17,7 +17,9 @@ namespace Repositories
                 id = model.id,
                 name = model.name,
                 login = model.login,
-                phone_number = model.phone_number
+                phone_number = model.phone_number,
+                password = model.password,
+                role = model.role == "Admin" ? User.Role.Admin : User.Role.User
             };
         }
     }

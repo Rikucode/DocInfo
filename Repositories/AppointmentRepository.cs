@@ -14,9 +14,9 @@ namespace Repositories
 {
     public class AppointmentRepository : IAppointmentRepository
     {
-        private readonly AppointmentContext _context;
+        private readonly ApplicationContext _context;
 
-        public AppointmentRepository(AppointmentContext context)
+        public AppointmentRepository(ApplicationContext context)
         {
             _context = context;
         }
