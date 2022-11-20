@@ -2,3 +2,6 @@
 */.vs
 obj/
 bin/
+Contexts/Migrations/*
+!Contexts/Migrations/
+Contexts/Database.db

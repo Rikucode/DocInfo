@@ -1,6 +1,7 @@
-using DomainLogic.Models;
 using DomainLogic.IRepositories;
 using DomainLogic.Services;
+using DomainLogic;
+using Repositories;
 
 namespace DocTests
 {

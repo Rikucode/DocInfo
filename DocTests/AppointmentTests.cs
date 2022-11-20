@@ -1,11 +1,12 @@
 ﻿using DomainLogic.IRepositories;
 using DomainLogic.Services;
-using DomainLogic.Models;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainLogic;
 
 namespace DocTests
 {
@@ -21,10 +22,9 @@ namespace DocTests
         [Fact]
         public void AddNullAppointment_ShouldFail()
         {
-            _appointmentRepositoryMock.Setup(repository => repository.AddAppointment(It.IsAny<Doctor>(), It.IsAny<DateOnly>()))
+            _appointmentRepositoryMock.Setup(repository => repository.AddAppointment(It.IsAny<AppointmentModel>()))
             .Returns(() => false);
-            DateOnly dateOnly = new DateOnly();
-            var res = _appointmentService.AddAppointment(null, dateOnly);
+            var res = _appointmentService.AddAppointment(null);
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Не удалось сохранить запись на приём");
@@ -32,7 +32,7 @@ namespace DocTests
         [Fact]
         public void FreeDatesNotFound_ShouldFail()
         {
-            var res = _appointmentService.GetFreeDates(null);
+            var res = _appointmentService.GetFreeDates(0);
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Не удалось получить список свободных дат");

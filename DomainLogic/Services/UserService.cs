@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DomainLogic.Models;
+using Models;
 using DomainLogic.IRepositories;
 
 namespace DomainLogic.Services
@@ -29,7 +29,7 @@ namespace DomainLogic.Services
                 return Result.Fail<User>("Error:" + e);
             }
         }
-        public Result<User> CreateUser(User user)
+        public Result<User> CreateUser(UserModel user)
         {
             try
             {
