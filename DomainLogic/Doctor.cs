@@ -11,6 +11,6 @@ namespace DomainLogic
         public int id { get; set; }
         public string name { get; set; }
 
-        public int speciality_id;
+        public int speciality_id { get; set; }
     }
 }
