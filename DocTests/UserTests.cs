@@ -9,7 +9,6 @@ namespace DocTests
     {
         private readonly Mock<IUserRepository> _userRepositoryMock;
         private readonly UserService _userService;
-        private readonly UserRepository _userRepository;
         public UserTests()
         {
             _userRepositoryMock = new Mock<IUserRepository>();
@@ -47,13 +46,6 @@ namespace DocTests
 
             Assert.True(res.IsFailure);
             Assert.Equal(res.Error, "Такого пользователя не существует");
-        }
-
-        [Fact]
-        public void Insert()
-        {
-            _userRepository.InsertTest();
-            Assert.True(true);
         }
     }
 }
