@@ -14,7 +14,7 @@ namespace Contexts
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
             optionsBuilder.UseSqlite(
-                "Data Source=Database.db");
+                "Data Source=C:/Users/artyo/Documents/GitHub/DocInfo/Database.db");
 
             return new ApplicationContext(optionsBuilder.Options);
         }
