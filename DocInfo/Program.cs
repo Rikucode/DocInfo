@@ -11,6 +11,12 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 options.UseSqlite("Data Source=C:/Users/artyo/Documents/GitHub/DocInfo/Database.db"));
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<IDoctorRepository, DoctorRepository>();
+builder.Services.AddTransient<DoctorService>();
+builder.Services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddTransient<AppointmentService>();
+builder.Services.AddTransient<IScheduleRepository, ScheduleRepository>();
+builder.Services.AddTransient<ScheduleService>();
 builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
